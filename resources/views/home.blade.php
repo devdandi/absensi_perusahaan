@@ -27,8 +27,14 @@
                     <b>ABSEN MASUK</b>
                 </span>
                 <hr>
-                    <a onclick="return confirm('Yakin ingin absen masuk ? ')" type="button" class="btn btn-primary" href="{{ route('in')}}">MASUK</a>
+                @if(App\Absent::where('id_user', Auth::id())->whereDate('created_at','=',\Carbon\Carbon::today()->toDateTimeString())->where('status','IN')->count() > 0) 
+                <button type="button" disabled class="btn btn-primary">SUDAH ABSEN</button>
                     <small style="color: red"><i>Berlaku 1x klik</i></small>
+                @else
+                <a onclick="return confirm('Yakin ingin absen masuk ? ')" type="button" class="btn btn-primary" href="{{ route('in')}}">MASUK</a>
+                    <small style="color: red"><i>Berlaku 1x klik</i></small>
+                @endif
+
             </div>
         </div>
         <div class="col-md-4 mb-3">
@@ -37,8 +43,16 @@
                     <b>ABSEN KELUAR</b>
                 </span>
                 <hr>
-                <a type="button" onclick="return confirm('Yakin ingin absen keluar ? ')" href="{{ route('out')}}" class="btn btn-danger">KELUAR</a>
-                <small style="color: red"><i>Berlaku 1x klik</i></small>
+                @if(App\Absent::where('id_user', Auth::id())->whereDate('created_at','=',\Carbon\Carbon::today()->toDateTimeString())->where('status','OUT')->count() > 0) 
+                <button type="button" disabled class="btn btn-primary">SUDAH ABSEN</button>
+                    <small style="color: red"><i>Berlaku 1x klik</i></small>
+                @elseif(App\Absent::where('id_user', Auth::id())->whereDate('created_at','=',\Carbon\Carbon::today()->toDateTimeString())->where('status','IN')->count() < 1)
+                <button type="button" disabled class="btn btn-warning">ABSEN MASUK DULU</button>
+                    <small style="color: red"><i>Berlaku 1x klik</i></small>
+                @else
+                <a onclick="return confirm('Yakin ingin absen masuk ? ')" type="button" class="btn btn-danger" href="{{ route('out')}}">PULANG</a>
+                    <small style="color: red"><i>Berlaku 1x klik</i></small>
+                @endif
 
             </div>
         </div>
