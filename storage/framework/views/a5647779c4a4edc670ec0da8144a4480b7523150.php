@@ -332,13 +332,8 @@
 							<div class="collapse" id="dashboard">
 								<ul class="nav nav-collapse">
 									<li>
-										<a href="../demo1/index.html">
-											<span class="sub-item">Dashboard 1</span>
-										</a>
-									</li>
-									<li>
-										<a href="../demo2/index.html">
-											<span class="sub-item">Dashboard 2</span>
+										<a href="#">
+											<span class="sub-item">Dashboard</span>
 										</a>
 									</li>
 								</ul>

@@ -261,7 +261,7 @@
   ),
   'database' => 
   array (
-    'default' => 'pgsql',
+    'default' => 'mysql',
     'connections' => 
     array (
       'sqlite' => 
@@ -277,10 +277,10 @@
         'driver' => 'mysql',
         'url' => NULL,
         'host' => '127.0.0.1',
-        'port' => '5432',
+        'port' => '3306',
         'database' => 'absensi_app',
-        'username' => 'postgres',
-        'password' => 'dandi@ramdani',
+        'username' => 'root',
+        'password' => '',
         'unix_socket' => '',
         'charset' => 'utf8mb4',
         'collation' => 'utf8mb4_unicode_ci',
@@ -297,10 +297,10 @@
         'driver' => 'pgsql',
         'url' => NULL,
         'host' => '127.0.0.1',
-        'port' => '5432',
+        'port' => '3306',
         'database' => 'absensi_app',
-        'username' => 'postgres',
-        'password' => 'dandi@ramdani',
+        'username' => 'root',
+        'password' => '',
         'charset' => 'utf8',
         'prefix' => '',
         'prefix_indexes' => true,
@@ -312,10 +312,10 @@
         'driver' => 'sqlsrv',
         'url' => NULL,
         'host' => '127.0.0.1',
-        'port' => '5432',
+        'port' => '3306',
         'database' => 'absensi_app',
-        'username' => 'postgres',
-        'password' => 'dandi@ramdani',
+        'username' => 'root',
+        'password' => '',
         'charset' => 'utf8',
         'prefix' => '',
         'prefix_indexes' => true,
@@ -564,7 +564,7 @@
     'failed' => 
     array (
       'driver' => 'database',
-      'database' => 'pgsql',
+      'database' => 'mysql',
       'table' => 'failed_jobs',
     ),
   ),

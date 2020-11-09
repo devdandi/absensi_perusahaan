@@ -5,6 +5,9 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Absent;
+use Carbon\Carbon;
+use DB;
 
 class User extends Authenticatable
 {
@@ -36,4 +39,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    public static function getEmployeeNotAbsent()
+    {
+       return DB::select(DB::raw("SELECT * FROM users WHERE NOT EXISTS(SELECT * FROM absents WHERE users.id = absents.id_user)"));
+        // SELECT * FROM users WHERE NOT EXISTS(SELECT * FROM absents WHERE users.id = absents.id_user AND absents.keterangan='IN' OR absents.keterangan = 'OUT')
+    }
 }

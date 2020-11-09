@@ -19,7 +19,7 @@
 				</div>
 				<div class="page-inner mt--5">
 					<div class="row mt--2">
-						<div class="col-md-6">
+						<!-- <div class="col-md-6">
 							<div class="card full-height">
 								<div class="card-body">
 									<div class="card-title">Overall statistics</div>
@@ -30,7 +30,7 @@
 											<h6 class="fw-bold mt-3 mb-0">New Users</h6>
 										</div>
 										<div class="px-2 pb-2 pb-md-0 text-center">
-											<div id="circles-2">3</div>
+											<div id="circles-2"></div>
 											<h6 class="fw-bold mt-3 mb-0">Sales</h6>
 										</div>
 										<div class="px-2 pb-2 pb-md-0 text-center">
@@ -40,8 +40,8 @@
 									</div>
 								</div>
 							</div>
-						</div>
-						<div class="col-md-6">
+						</div> -->
+						<!-- <div class="col-md-6">
 							<div class="card full-height">
 								<div class="card-body">
 									<div class="card-title">Total income & spend statistics</div>
@@ -64,14 +64,14 @@
 									</div>
 								</div>
 							</div>
-						</div>
+						</div> -->
 					</div>
 					<div class="row">
 						<div class="col-md-8">
-							<div class="card">
+							<!-- <div class="card">
 								<div class="card-header">
 									<div class="card-head-row">
-										<div class="card-title">User Statistics</div>
+										<div class="card-title">Data Absensi Bulanan</div>
 										<div class="card-tools">
 											<a href="#" class="btn btn-info btn-border btn-round btn-sm mr-2">
 												<span class="btn-label">
@@ -94,24 +94,24 @@
 									</div>
 									<div id="myChartLegend"></div>
 								</div>
-							</div>
+							</div> -->
 						</div>
 						<div class="col-md-4">
 							<div class="card card-primary">
 								<div class="card-header">
-									<div class="card-title">Daily Sales</div>
-									<div class="card-category">March 25 - April 02</div>
+									<div class="card-title">Jumlah Karyawan</div>
+									<!-- <div class="card-category">March 25 - April 02</div> -->
 								</div>
 								<div class="card-body pb-0">
 									<div class="mb-4 mt-2">
-										<h1>$4,578.58</h1>
+										<h1><?php echo e(\App\User::count()); ?> Orang</h1>
 									</div>
-									<div class="pull-in">
+									<!-- <div class="pull-in">
 										<canvas id="dailySalesChart"></canvas>
-									</div>
+									</div> -->
 								</div>
 							</div>
-							<div class="card">
+							<!-- <div class="card">
 								<div class="card-body pb-0">
 									<div class="h1 fw-bold float-right text-warning">+7%</div>
 									<h2 class="mb-2">213</h2>
@@ -120,15 +120,16 @@
 										<div id="lineChart"></div>
 									</div>
 								</div>
-							</div>
+							</div> -->
 						</div>
+						
 					</div>
 					<div class="row row-card-no-pd">
 						<div class="col-md-12">
 							<div class="card">
 								<div class="card-header">
 									<div class="card-head-row card-tools-still-right">
-										<h4 class="card-title">Users Geolocation</h4>
+										<h4 class="card-title"></h4>
 										<div class="card-tools">
 											<button class="btn btn-icon btn-link btn-primary btn-xs"><span class="fa fa-angle-down"></span></button>
 											<button class="btn btn-icon btn-link btn-primary btn-xs btn-refresh-card"><span class="fa fa-sync-alt"></span></button>
@@ -136,105 +137,38 @@
 										</div>
 									</div>
 									<p class="card-category">
-									Map of the distribution of users around the world</p>
+									Karyawan Yang Belum Absen Masuk</p>
 								</div>
 								<div class="card-body">
 									<div class="row">
-										<div class="col-md-6">
+										<div class="col-md-12">
 											<div class="table-responsive table-hover table-sales">
 												<table class="table">
 													<tbody>
 														<tr>
-															<td>
-																<div class="flag">
-																	<img src="../assets/img/flags/id.png" alt="indonesia">
-																</div>
-															</td>
-															<td>Indonesia</td>
-															<td class="text-right">
-																2.320
-															</td>
-															<td class="text-right">
-																42.18%
-															</td>
+															<th>#</th>
+															<th>Nama</th>
+															<th>Email</th>
+															<th>Jabatan</th>
+															<th>Bergabung Tanggal</th>
+															<th>Status</th>
 														</tr>
-														<tr>
-															<td>
-																<div class="flag">
-																	<img src="../assets/img/flags/us.png" alt="united states">
-																</div>
-															</td>
-															<td>USA</td>
-															<td class="text-right">
-																240
-															</td>
-															<td class="text-right">
-																4.36%
-															</td>
-														</tr>
-														<tr>
-															<td>
-																<div class="flag">
-																	<img src="../assets/img/flags/au.png" alt="australia">
-																</div>
-															</td>
-															<td>Australia</td>
-															<td class="text-right">
-																119
-															</td>
-															<td class="text-right">
-																2.16%
-															</td>
-														</tr>
-														<tr>
-															<td>
-																<div class="flag">
-																	<img src="../assets/img/flags/ru.png" alt="russia">
-																</div>
-															</td>
-															<td>Russia</td>
-															<td class="text-right">
-																1.081
-															</td>
-															<td class="text-right">
-																19.65%
-															</td>
-														</tr>
-														<tr>
-															<td>
-																<div class="flag">
-																	<img src="../assets/img/flags/cn.png" alt="china">
-																</div>
-															</td>
-															<td>China</td>
-															<td class="text-right">
-																1.100
-															</td>
-															<td class="text-right">
-																20%
-															</td>
-														</tr>
-														<tr>
-															<td>
-																<div class="flag">
-																	<img src="../assets/img/flags/br.png" alt="brazil">
-																</div>
-															</td>
-															<td>Brasil</td>
-															<td class="text-right">
-																640
-															</td>
-															<td class="text-right">
-																11.63%
-															</td>
-														</tr>
+														<?php $__currentLoopData = $karyawan; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $no => $data_karyawan): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+															<tr>
+																<td><?php echo e($no+1); ?></td>
+																<td><?php echo e($data_karyawan->name); ?></td>
+																<td><?php echo e($data_karyawan->email); ?></td>
+																<td><?php echo e($data_karyawan->jabatan); ?></td>
+																<td><?php echo e(date('d/m/Y', strtotime($data_karyawan->created_at))); ?></td>
+																<?php if($data_karyawan->status === 1): ?>
+																	<td style="color: green">AKTIF</td>
+																<?php else: ?>
+																	<td style="color: red">NONAKTIF</td>
+																<?php endif; ?>
+															</tr>
+														<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 													</tbody>
 												</table>
-											</div>
-										</div>
-										<div class="col-md-6">
-											<div class="mapcontainer">
-												<div id="map-example" class="vmap"></div>
 											</div>
 										</div>
 									</div>
@@ -243,7 +177,7 @@
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-md-4">
+						<!-- <div class="col-md-4">
 							<div class="card">
 								<div class="card-header">
 									<div class="card-title">Top Products</div>
@@ -293,8 +227,8 @@
 									</div>
 								</div>
 							</div>
-						</div>
-						<div class="col-md-4">
+						</div> -->
+						<!-- <div class="col-md-4">
 							<div class="card">
 								<div class="card-body">
 									<div class="card-title fw-mediumbold">Suggested People</div>
@@ -374,8 +308,8 @@
 									</div>
 								</div>
 							</div>
-						</div>
-						<div class="col-md-4">
+						</div> -->
+						<!-- <div class="col-md-4">
 							<div class="card card-primary bg-primary-gradient">
 								<div class="card-body">
 									<h4 class="mt-3 b-b1 pb-2 mb-4 fw-bold">Active user right now</h4>
@@ -389,10 +323,10 @@
 									</ul>
 								</div>
 							</div>
-						</div>
+						</div> -->
 					</div>
 					<div class="row">
-						<div class="col-md-6">
+						<!-- <div class="col-md-6">
 							<div class="card full-height">
 								<div class="card-header">
 									<div class="card-title">Feed Activity</div>
@@ -426,8 +360,8 @@
 									</ol>
 								</div>
 							</div>
-						</div>
-						<div class="col-md-6">
+						</div> -->
+						<!-- <div class="col-md-6">
 							<div class="card full-height">
 								<div class="card-header">
 									<div class="card-head-row">
@@ -514,7 +448,7 @@
 									</div>
 								</div>
 							</div>
-						</div>
+						</div> -->
 					</div>
 				</div>
 			</div>
