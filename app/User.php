@@ -7,6 +7,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use App\Absent;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Cache;
 use DB;
 
 class User extends Authenticatable
@@ -41,7 +42,22 @@ class User extends Authenticatable
     ];
     public static function getEmployeeNotAbsent()
     {
-       return DB::select(DB::raw("SELECT * FROM users WHERE NOT EXISTS(SELECT * FROM absents WHERE users.id = absents.id_user)"));
+        $date = date('Y-m-d');
+        return DB::select(DB::raw("SELECT * FROM users WHERE NOT EXISTS (SELECT * FROM absents WHERE users.id = absents.id_user AND absents.created_at LIKE '$date%' AND absents.status = 'IN') LIMIT 10"));
         // SELECT * FROM users WHERE NOT EXISTS(SELECT * FROM absents WHERE users.id = absents.id_user AND absents.keterangan='IN' OR absents.keterangan = 'OUT')
+    }
+    public static function getCountEmployee()
+    {
+        if(Cache::get('getCountEmployee') === null)
+        {
+            return Cache::remember('getCountEmployee', now()->addMinutes(60), function() {
+                return User::count();
+            });
+        }
+        return Cache::get('getCountEmployee');
+    }
+    public static function getEmployee()
+    {
+        return User::paginate(25);
     }
 }

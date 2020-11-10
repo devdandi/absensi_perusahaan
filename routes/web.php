@@ -29,6 +29,14 @@ Route::get('/admin/login','Auth\AdminLoginController@index')->name('login.index'
 Route::post('/admin/login','Auth\AdminLoginController@login')->name('login.posta');
 
 Route::middleware('auth:admin')->group(function() {
-    Route::get('/admin','AdminController@index')->name('admin.home');
-    // Route::post('/admin/logout','Auth/AdminLoginController@logout')->name('logout');
+    Route::group(['prefix' => 'admin/'], function() {
+        Route::get('/','AdminController@index')->name('admin.home');
+        Route::get('/get-count-employee', 'RequestController@getCountEmployee')->name('request.getCountEmployee');
+        Route::get('/karyawan','KaryawanController@index')->name('karyawan.lihat');
+        Route::get('/karyawan/tambah','KaryawanController@showForm')->name('karyawan.tambah');
+        Route::post('/karyawan/tambah','KaryawanController@create')->name('karyawan.create');
+        Route::post('/karyawan/delete/{id}', 'KaryawanController@destroy')->name('karyawan.delete');
+        Route::post('/karyawan/cari', 'KaryawanController@cari')->name('karyawan.cari');
+        Route::get('/karyawan/checknik/{nik}', 'RequestController@checknik')->name('check.nik');
+    });
 });

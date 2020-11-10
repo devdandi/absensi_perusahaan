@@ -9,11 +9,11 @@
 						<div class="d-flex align-items-left align-items-md-center flex-column flex-md-row">
 							<div>
 								<h2 class="text-white pb-2 fw-bold">Dashboard</h2>
-								<h5 class="text-white op-7 mb-2">Free Bootstrap 4 Admin Dashboard</h5>
+								<h5 class="text-white op-7 mb-2">Website Absensi Perusahaan</h5>
 							</div>
 							<div class="ml-md-auto py-2 py-md-0">
-								<a href="#" class="btn btn-white btn-border btn-round mr-2">Manage</a>
-								<a href="#" class="btn btn-secondary btn-round">Add Customer</a>
+								<!-- <a href="#" class="btn btn-white btn-border btn-round mr-2">Manage</a>
+								<a href="#" class="btn btn-secondary btn-round">Add Customer</a> -->
 							</div>
 						</div>
 					</div>
@@ -105,7 +105,11 @@
 								</div>
 								<div class="card-body pb-0">
 									<div class="mb-4 mt-2">
-										<h1>{{ \App\User::count() }} Orang</h1>
+										@if(Cache::get('getCountEmployee') === null)
+											<h1 id="getCountEmployee"></h1>
+										@else
+											<h1>{{ number_format(Cache::get('getCountEmployee')) }} Orang</h1> ( <small style="color: yellow">Getting data by Cache</small> )
+										@endif
 									</div>
 									<!-- <div class="pull-in">
 										<canvas id="dailySalesChart"></canvas>
@@ -153,6 +157,7 @@
 															<th>Jabatan</th>
 															<th>Bergabung Tanggal</th>
 															<th>Status</th>
+															<th>Aksi</th>
 														</tr>
 														@foreach($karyawan as $no => $data_karyawan)
 															<tr>
@@ -166,6 +171,7 @@
 																@else
 																	<td style="color: red">NONAKTIF</td>
 																@endif
+																<td><a href="#">Kirim Pesan</a></td>
 															</tr>
 														@endforeach
 													</tbody>

@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 use Carbon\Carbon;
 use Auth;
 use App\User;
 use App\Absent;
-use DB;
 
 class AdminController extends Controller
 {
@@ -22,6 +22,9 @@ class AdminController extends Controller
     }
     public function index()
     {
+        // dd($this->getCountEmployee());
+        
         return view('admin.index',['user' => Auth::user(),'karyawan' => User::getEmployeeNotAbsent()]);
+        
     }
 }
